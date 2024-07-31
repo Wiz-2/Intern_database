@@ -19,3 +19,6 @@ After that run
 
 And you must see the prompt like this :-
 ![image](https://github.com/user-attachments/assets/bed8750b-1eac-4dff-a73f-ba23254579f8)
+
+
+After that you enter 1 to add a new student to the database, or select 2 to display the info.
