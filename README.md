@@ -22,3 +22,7 @@ And you must see the prompt like this :-
 
 
 After that you enter 1 to add a new student to the database, or select 2 to display the info.
+
+The sample input and output in my case is shown below:-
+
+![Screenshot_output](https://github.com/user-attachments/assets/88765d44-33ad-47b1-8d54-96efa9df0b46)
