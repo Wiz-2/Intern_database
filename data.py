@@ -94,16 +94,19 @@ def add_marks():
 def display_info():
 
     #Code for rank:
+    #Selects the queries where status is selected
     entries = session.query(students_marks).filter(students_marks.Result == 'Selected').order_by(students_marks.TotalMarks.desc()).all()
     current_rank = 1
     current_score = None
 
+    #Ranks those entries, multiple entries can have same rank.
     for entry in entries:
         if(entry.TotalMarks != current_score):
             current_rank = entries.index(entry) + 1
             current_score = entry.TotalMarks
         entry.Rank = current_rank
 
+    #Ranks where status is rejected is updated to "None":
     session.query(students_marks).filter(students_marks.Result == 'Rejected').update({students_marks.Rank: None})
 
     session.commit()
