@@ -78,49 +78,34 @@ def add_marks():
         
     global total_marks
     i = 0
-    if(len(total_marks) == 0):
-        total_marks.append(TotalMarks)
-    else:
-        for totalmark in total_marks:
-            if(TotalMarks >= totalmark):
-                total_marks.insert(i, TotalMarks)
-                break
-            else:
-                i += 1
+    total_marks.append(TotalMarks)
     if(Result == 'Selected'):
-        Rank = i + 1
+        Rank = 1 
     else:
-        Rank = None
-    
-    if(Rank == 0 and Result == "Selected"):
-        Rank = len(total_marks) + 1
-    elif(Rank == 0 and Result == "Rejected"):
-        Rank = None
+        Rank = 0
     
     new_student = students_marks(StudentName = StudentName, CollegeName = CollegeName, Round1Marks = Round1Marks, Round2Marks = Round2Marks, Round3Marks = Round3Marks, TechnicalRoundMarks = TechnicalRoundMarks, TotalMarks = TotalMarks, Result = Result, Rank = Rank)
     
     session.add(new_student)
     session.commit()
     
-    print("Student has been added in the database")
-    
-def rank(marks_list):
-    enumerated_list = list(enumerate(marks_list))
-    sorted_list = sorted(enumerated_list, key = lambda x : x[1])
-    rank_change = [0]*len(marks_list)
-    for new_pos, (original_pos, value) in enumerate(sorted_list):
-        rank_change[original_pos] = new_pos
-    
-    return rank_change
+    print("Student has been added in the database")    
     
 def display_info():
 
     #Code for rank:
-    global total_marks
-    arr = rank(total_marks)
-    
-    for index,new_rank in enumerate(arr,start = 1):
-        session.query(students_marks).filter(students_marks.ID == index).update({students_marks.Rank : new_rank})
+    entries = session.query(students_marks).filter(students_marks.Result == 'Selected').order_by(students_marks.score.desc()).all()
+    current_rank = 1
+    current_score = None
+
+    for entry in entries:
+        if(entry.TotalMarks != current_score):
+            current_rank = entries.index(entry) + 1
+            current_score = entry.TotalMarks
+        entry.rank = current_rank
+
+    session.query(students_marks).filter(students_marks.Result == 'Rejected').update({students_marks.Rank: None})
+
     session.commit()
     
     # Code for order by rank:
