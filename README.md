@@ -8,10 +8,10 @@ After that
 Now, in the prompt create:-
 
 ```CREATE DATABASE students_marks;```
-```CREATE USER me WITH PASSWORD 'stydent_marks';```
+```CREATE USER me WITH PASSWORD 'student_marks';```
 
 And then,
-```GRANT ALL PRIVILEGES ON DATABASE myproductdb TO myuser;```
+```GRANT ALL PRIVILEGES ON DATABASE student_marks TO me;```
 
 
 After that run 
