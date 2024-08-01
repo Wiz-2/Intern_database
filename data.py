@@ -43,25 +43,25 @@ def add_marks():
             break
     while(1):
         Round1Marks = float(input("Enter the round1 Marks:"))
-        if(Round1Marks < 0.0 and Round1Marks > 10.0):
+        if(Round1Marks < 0.0 or Round1Marks > 10.0):
             print("Round1Marks can only be between 0 to 10")
         else:
             break
     while(1):
         Round2Marks = float(input("Enter the round2 Marks:"))
-        if(Round2Marks < 0.0 and Round2Marks > 10.0):
+        if(Round2Marks < 0.0 or Round2Marks > 10.0):
             print("Round2Marks can only be between 0 to 10")
         else:
             break
     while(1):
         Round3Marks = float(input("Enter the round3 Marks:"))
-        if(Round3Marks < 0.0 and Round3Marks > 10.0):
+        if(Round3Marks < 0.0 or Round3Marks > 10.0):
             print("Round3Marks can only be between 0 to 10")
         else:
             break
     while(1):
         TechnicalRoundMarks = float(input("Enter the technical round marks Marks:"))
-        if(TechnicalRoundMarks < 0.0 and TechnicalRoundMarks > 20.0):
+        if(TechnicalRoundMarks < 0.0 or TechnicalRoundMarks > 20.0):
             print("TechnicalRoundMarks can only be between 0 to 20")
         else:
             break
