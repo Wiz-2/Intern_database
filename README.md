@@ -26,3 +26,8 @@ After that you enter 1 to add a new student to the database, or select 2 to disp
 The sample input and output in my case is shown below:-
 
 ![Screenshot_output](https://github.com/user-attachments/assets/88765d44-33ad-47b1-8d54-96efa9df0b46)
+
+The output with the correct code for rank is given below:-
+
+![image](https://github.com/user-attachments/assets/5bbf248a-8f8f-4a85-abd9-10307a707937)
+
