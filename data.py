@@ -29,31 +29,42 @@ session = Session()
 total_marks = []
 
 def add_marks():
-    StudentName = input("Enter the name of the student(max 30 characters):")
-    CollegeName = input("Enter the name of the college(max 50 characters):")
-    Round1Marks = float(input("Enter the round1 Marks:"))
-    Round2Marks = float(input("Enter the round1 Marks:"))
-    Round3Marks = float(input("Enter the round1 Marks:"))
-    TechnicalRoundMarks = float(input("Enter the technical round marks:"))
-    
-    if(len(StudentName)>30):
-        print("StudentName is too long, max. 30 characters allowed")
-        return
-    if(len(CollegeName)>50):
-        print("CollegeName is too long, max. 50 characters allowed")
-        return
-    if(Round1Marks < 0.0 and Round1Marks > 10.0):
-        print("Round1Marks can only be between 0 to 10")
-        return
-    if(Round2Marks < 0.0 and Round2Marks > 10.0):
-        print("Round2Marks can only be between 0 to 10")
-        return
-    if(Round3Marks < 0.0 and Round3Marks > 10.0):
-        print("Round3Marks can only be between 0 to 10")
-        return
-    if(TechnicalRoundMarks < 0.0 and TechnicalRoundMarks > 20.0):
-        print("TechnicalRoundMarks can only be between 0 to 20")
-        return
+    while(1):
+        StudentName = input("Enter the name of the student(max 30 characters):")
+        if(len(StudentName)>30):
+            print("Enter the name once again, it should be less than or equal to 30 characters")
+        else:
+            break
+    while(1):
+        CollegeName = input("Enter the name of the College(max 50 characters):")
+        if(len(CollegeName)>30):
+            print("Enter the name once again, it should be less than or equal to 50 characters")
+        else:
+            break
+    while(1):
+        Round1Marks = float(input("Enter the round1 Marks:"))
+        if(Round1Marks < 0.0 and Round1Marks > 10.0):
+            print("Round1Marks can only be between 0 to 10")
+        else:
+            break
+    while(1):
+        Round2Marks = float(input("Enter the round2 Marks:"))
+        if(Round2Marks < 0.0 and Round2Marks > 10.0):
+            print("Round2Marks can only be between 0 to 10")
+        else:
+            break
+    while(1):
+        Round3Marks = float(input("Enter the round3 Marks:"))
+        if(Round3Marks < 0.0 and Round3Marks > 10.0):
+            print("Round3Marks can only be between 0 to 10")
+        else:
+            break
+    while(1):
+        TechnicalRoundMarks = float(input("Enter the technical round marks Marks:"))
+        if(TechnicalRoundMarks < 0.0 and TechnicalRoundMarks > 20.0):
+            print("TechnicalRoundMarks can only be between 0 to 20")
+        else:
+            break
     
     TotalMarks = Round1Marks + Round2Marks + Round3Marks + TechnicalRoundMarks
     if(TotalMarks < 35):
