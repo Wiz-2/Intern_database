@@ -67,7 +67,11 @@ def add_marks():
             break
     
     TotalMarks = Round1Marks + Round2Marks + Round3Marks + TechnicalRoundMarks
-    if(TotalMarks < 35):
+    MaxRound1 = 10
+    MaxRound2 = 10
+    MaxRound3 = 10
+    MaxTechnicalRound = 20
+    if(TotalMarks < 35 or (Round1Marks < 0.7 * MaxRound1 or Round2Marks < 0.7*MaxRound2 or Round3Marks < 0.7*MaxRound3 or TechnicalRoundMarks < 0.7*MaxTechnicalRound)):
         Result = "Rejected"
     else:
         Result = "Selected"
@@ -83,12 +87,15 @@ def add_marks():
                 break
             else:
                 i += 1
-    Rank = i + 1
+    if(Result == 'Selected'):
+        Rank = i + 1
+    else:
+        Rank = None
     
-    if(Rank == 0):
-        rank = len(total_marks) + 1
-    
-        
+    if(Rank == 0 and Result == "Selected"):
+        Rank = len(total_marks) + 1
+    elif(Rank == 0 and Result == "Rejected"):
+        Rank = None
     
     new_student = students_marks(StudentName = StudentName, CollegeName = CollegeName, Round1Marks = Round1Marks, Round2Marks = Round2Marks, Round3Marks = Round3Marks, TechnicalRoundMarks = TechnicalRoundMarks, TotalMarks = TotalMarks, Result = Result, Rank = Rank)
     
