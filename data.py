@@ -102,7 +102,7 @@ def display_info():
         if(entry.TotalMarks != current_score):
             current_rank = entries.index(entry) + 1
             current_score = entry.TotalMarks
-        entry.rank = current_rank
+        entry.Rank = current_rank
 
     session.query(students_marks).filter(students_marks.Result == 'Rejected').update({students_marks.Rank: None})
 
