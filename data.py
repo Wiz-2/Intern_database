@@ -94,7 +94,7 @@ def add_marks():
 def display_info():
 
     #Code for rank:
-    entries = session.query(students_marks).filter(students_marks.Result == 'Selected').order_by(students_marks.score.desc()).all()
+    entries = session.query(students_marks).filter(students_marks.Result == 'Selected').order_by(students_marks.TotalMarks.desc()).all()
     current_rank = 1
     current_score = None
 
